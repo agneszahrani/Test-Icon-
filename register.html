@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Register</title>
+</head>
+<body>
+    <div class="form-register">
+        <h3>Create Your Account</h3>
+        <form action="">
+            <label for="fname">First Name</label><br>
+            <input type="text" class="form-group" id="fname" name="fname" placeholder="Joko" required><br>
+            
+            <label for="lname">Last Name</label><br>
+            <input type="text" class="form-group" id="lname" name="lname" placeholder="Shidqi" required><br>
+            
+            <label for="email">Email Address</label><br>
+            <input type="email" class="form-group" id="email" name="email" placeholder="email@example.org" required><br>
+            
+            <label for="pass">Password</label><br>
+            <input type="password" class="form-group" id="pass" name="pass" placeholder="********" minlength="8" required><br>
+            
+            <input type="checkbox" id="checkbox" name="checkbox">
+            <label for="checkbox" class="checkbox">To register with us please tick to agree to our
+                <span style="color:#478ccc ">Terms and Conditions</span>
+            </label><br>
+            
+            <button type="submit" class="button" onclick="register()">
+                Register
+            </button>
+        </form>
+    </div>
+    <div class="alternative">
+        <div style="margin-bottom: 10px;">
+            <a>
+                Already have an account? 
+                <span><a href="login.html" style="color: white; text-decoration: none;">Sign In</a></span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function register() {
+            var firstName = document.getElementById('fname');
+            var lastName = document.getElementById('lname');
+            var email = document.getElementById('email');
+            var password = document.getElementById('pass');
+            var data = JSON.stringify(
+                {
+                    'fname': fname.value,
+                    'lname': lname.value,
+                    'email': email.value,
+                    'pass': password.value
+                }
+            );
+            if(data == null){
+                console.log('Register berhasil dengan data \n'+data);
+            }else{
+                console.log('Register gagal, data input tidak valid.');
+            }
+
+            // var url = "";
+            // fetch(url, {
+            //     method: "POST",
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-type': 'application/json'
+            //     },
+            //     body: data
+            // // }).then(function(response){
+            // //     return response.json();
+            // }).then(function(response){
+            //     return response.json().then(function(data){
+            //         console.log(response.status);
+            //         if(response.status == 201){
+            //             alert('Data registrasi berhasil disimpan.');
+            //         }else{
+            //             console.log(data);
+            //             alert('Error, data tidak benar. '+data.message);
+            //         }
+            //     });
+            //     // if(responseStatus.status == 201) {
+            //     //     alert('Data berhasil disimpan.');
+            //     //     return responStatus.json();
+            //     // }else{
+            //     //     alert('Errornya disini');
+            //     // }
+            // }).catch(function(error){
+            //     alert("Error" + error);
+            // });
+        }
+    </script>
+</body>
+</html>

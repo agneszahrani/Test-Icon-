@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css"/>
+    <title>Login</title>
+</head>
+<body>
+    <div class="form-login">
+        <h3>Login to your Account</h3>
+        <form action="">
+            <label for="email">Email Address</label><br>
+            <input type="email" class="form-group" id="email" name="email" placeholder="email@example.org" required><br>
+            
+            <label for="pass">Password</label><br>
+            <input type="password" class="form-group" id="pass" name="pass" placeholder="********" minlength="8" required><br>
+            
+            <button type="submit" class="button" onclick="login()">
+                Login
+            </button>
+        </form>
+    </div>
+    <div class="alternative">
+        <div style="margin-bottom: 10px;">
+            <a>
+                Don't have an account? 
+                <span><a class="link" href="register.html">Register</a></span>
+            </a>
+        </div>
+        <div>
+            <a>
+                Forgotten your password? 
+                <span><a class="link" href="">Recover Password</a></span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var email = document.getElementById('email');
+            var password = document.getElementById('pass');
+            var data = JSON.stringify(
+                {
+                    'email': email.value,
+                    'password': password.value
+                }
+            );
+            if(data == null){
+                console.log('Login berhasil dengan data \n'+data);
+            }else{
+                console.log('Login gagal, data input tidak valid.');
+            }
+
+            // var url = "";
+            // fetch(url, {
+            //     method: "POST",
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-type': 'application/json'
+            //     },
+            //     body: data
+            // // }).then(function(response){
+            // //     return response.json();
+            // }).then(function(response){
+            //     return response.json().then(function(data){
+            //         console.log(response.status);
+            //         if(response.status == 201){
+            //             alert('Data registrasi berhasil disimpan.');
+            //         }else{
+            //             alert('Error, data tidak benar. '+data.message);
+            //         }
+            //     });
+            //     // if(responseStatus.status == 201) {
+            //     //     alert('Data berhasil disimpan.');
+            //     //     return responStatus.json();
+            //     // }else{
+            //     //     alert('Errornya disini');
+            //     // }
+            // }).catch(function(error){
+            //     alert("Error" + error);
+            // });
+        }
+    </script>
+</body>
+</html>
